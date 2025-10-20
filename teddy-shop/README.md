@@ -1,66 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# myWebapp
+bài Giữa kì 
+Dự án web bán gấu bông 
+1. Sơ đồ cơ sở dữ liệu (ERD)
+<img width="1178" height="625" alt="image" src="https://github.com/user-attachments/assets/ec4cc5a8-bf4a-480b-aaba-a7f5555f7b2d" />
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+2. Luồng hoạt động chính (Use Case Flow) - Web bán gấu bông
+2.1 Khách hàng xem danh sách sản phẩm
+Mô tả: Người dùng truy cập vào website và xem danh sách các gấu bông.
+Dữ liệu liên quan: Bảng products
+Các thao tác chính:
+Truy vấn tất cả sản phẩm từ bảng products.
+Hiển thị: tên, hình ảnh, giá.
+2.2 Khách hàng chọn sản phẩm để đặt hàng
+Mô tả: Người dùng chọn một hoặc nhiều sản phẩm và thêm vào giỏ hàng.
+Dữ liệu liên quan: products, order_items (chưa lưu vào DB cho đến khi đặt hàng).
+Các thao tác chính:
+Thêm sản phẩm (product_id) + số lượng (quantity) vào danh sách tạm thời (localStorage/session/cart).
+2.3 Khách hàng tiến hành đặt hàng (đang phát triển)
+Mô tả: Người dùng nhập thông tin cá nhân và xác nhận đơn hàng.
+Dữ liệu liên quan: orders, order_items
+Các thao tác chính:
+Tạo bản ghi mới trong bảng orders:
+order_code (mã đơn hàng tự sinh, ví dụ: OD20251020001)
+customer_name, customer_phone
+total_price_number
+Tạo nhiều bản ghi trong order_items, liên kết đến order_id và product_id tương ứng.
+quantity, price_number theo từng sản phẩm.
+3. Cấu trúc thư mục Laravel
+teddy-shop/
+├── app/
+│   └── Http/Controllers/
+│       ├── HomeController.php
+│       ├── CartController.php
+│       ├── ProductController.php
+│       └── OrderController.php
+│
+├── app/Models/
+│   ├── Product.php
+│   ├── Order.php
+│   └── OrderItem.php
+│
+├── database/
+│   ├── migrations/
+│   └── seeders/
+│       └── ProductSeeder.php
+│
+├── resources/views/
+│   ├── home.blade.php
+│   ├── layouts/app.blade.php
+│   └── auth/... (tự tạo bởi Laravel UI)
+│
+├── public/
+│   └── css/style.css
+│
+├── routes/web.php
+└── .env
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4.Tính năng mở rộng (Đang phát triển)
+Đánh giá sản phẩm
+Quản lý tồn kho
+Tích hợp thanh toán (VNPay, Momo…)
+5.Web demo
+<img width="1919" height="979" alt="image" src="https://github.com/user-attachments/assets/82e959ce-2f4c-4678-8a0a-cfcc808592a5" />

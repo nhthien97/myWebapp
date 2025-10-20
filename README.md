@@ -2,8 +2,8 @@
 bài Giữa kì 
 Dự án web bán gấu bông 
 1. Sơ đồ cơ sở dữ liệu (ERD)
+<img width="1178" height="625" alt="image" src="https://github.com/user-attachments/assets/ec4cc5a8-bf4a-480b-aaba-a7f5555f7b2d" />
 
-<img width="1155" height="979" alt="Untitled" src="https://github.com/user-attachments/assets/7e7e3772-ade0-462d-8914-6c624a38db04" />
 2. Luồng hoạt động chính (Use Case Flow)
 + Khách hàng
 

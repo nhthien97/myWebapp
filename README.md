@@ -60,3 +60,5 @@ teddy-shop/
 Đánh giá sản phẩm
 Quản lý tồn kho
 Tích hợp thanh toán (VNPay, Momo…)
+5.Web demo
+<img width="1919" height="979" alt="image" src="https://github.com/user-attachments/assets/82e959ce-2f4c-4678-8a0a-cfcc808592a5" />
